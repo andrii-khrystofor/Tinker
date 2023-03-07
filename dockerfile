@@ -7,4 +7,4 @@ RUN npm run build:docker
 
 FROM nginx:1.17.1-alpine
 COPY nginx.conf /etc/nginx/nginx.conf
-COPY /dist/Tinker /usr/share/nginx/html
+COPY --from=build /dist /usr/share/nginx/html
