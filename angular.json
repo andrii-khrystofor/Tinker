@@ -1,5 +1,8 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "cli": {
+    "analytics": "cddb2283-751d-44ec-b1b5-cc9f3c6435fa"
+  },
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
@@ -77,6 +80,9 @@
             "development": {
               "browserTarget": "Tinker:build:development"
             }
+          },
+          "options": {
+            "proxyConfig": "src/proxy.conf.json"
           },
           "defaultConfiguration": "development"
         },
