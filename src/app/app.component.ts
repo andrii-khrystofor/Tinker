@@ -9,7 +9,7 @@ import { fromFetch } from 'rxjs/fetch';
 })
 export class AppComponent {
   title = 'Tinker';
-  data$ = fromFetch('/api/WeatherForecast').pipe(
+  data$ = fromFetch('/api/users').pipe(
     switchMap(response => {
       if (response.ok) {
         // OK return data
