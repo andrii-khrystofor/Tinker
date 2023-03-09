@@ -7,6 +7,7 @@ import { CoreModule } from './core/core.module';
 import { RootModule } from './root/root.module';
 import { MainComponent } from './layouts/main/main.component';
 import { ModalComponent } from './layouts/modal/modal.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { ModalComponent } from './layouts/modal/modal.component';
     BrowserModule,
     AppRoutingModule,
     CoreModule,
-    RootModule
+    RootModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
