@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-feature-example',
@@ -7,9 +8,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FeatureExampleComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
+  }
+
+  navigateToFeatureModal(): void {
+    this.router.navigate([
+      '/root',
+      {
+        outlets: {
+          modalOutlet: [
+            'modal',
+            'modal-feature',
+          ],
+          dialogOutlet: null,
+        },
+      },
+    ]);
   }
 
 }

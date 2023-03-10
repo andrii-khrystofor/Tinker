@@ -5,22 +5,26 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { RootModule } from './root/root.module';
-import { MainComponent } from './layouts/main/main.component';
-import { ModalComponent } from './layouts/modal/modal.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MainLayoutComponent } from './layouts/main-layout/main-layout.component';
+import { ModalLayoutComponent } from './layouts/modal-layout/modal-layout.component';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MainComponent,
-    ModalComponent
+    MainLayoutComponent,
+    ModalLayoutComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     CoreModule,
     RootModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatIconModule,
+    MatButtonModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
