@@ -2,7 +2,8 @@
     <img src="../../../../assets/images/error.svg"
         class="error-icon"
         *ngIf="formControlError"
-        [matTooltip]="formControlError"/>
+        [matTooltip]="formControlError"
+        alt="Error icon"/>
         <label>{{label}}:</label>
         <input [type]="inputType" 
             matInput 
