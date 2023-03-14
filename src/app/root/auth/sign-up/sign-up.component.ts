@@ -36,13 +36,13 @@ export class SignUpComponent implements OnInit, OnDestroy {
     }
 
 
-    async submitData() {
+    submitData() {
         this.signUpForm.markAllAsTouched();
 
         if(this.signUpForm.valid){
-            const valueToSend = Object.assign(this.signUpForm.value);
+            const valueToSend = JSON.parse(JSON.stringify(this.signUpForm.value));
             delete valueToSend['repeatPassword'];
-            valueToSend.password = await hashPassword(valueToSend.password);
+            valueToSend.password = hashPassword(valueToSend.password);
             console.log(valueToSend);
         }
   }

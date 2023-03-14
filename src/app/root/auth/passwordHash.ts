@@ -1,6 +1,5 @@
-import * as bcrypt from 'bcryptjs';
+import { SHA256, enc } from 'crypto-js';
 
-export async function hashPassword(password: string) {
-    const salt = bcrypt.genSaltSync(10);
-    return bcrypt.hashSync(password, salt);
-}
+export function hashPassword(input: string): string {
+    return SHA256(input).toString(enc.Hex);
+  }
