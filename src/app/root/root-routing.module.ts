@@ -7,9 +7,6 @@ import { FeatureExampleComponent } from './feature-example/feature-example.compo
 import { ModalFeatureExampleComponent } from './modal-feature-example/modal-feature-example.component';
 import { RootComponent } from './root.component';
 import { AuthGuardService as AuthGuard } from '../core/guards/auth-guard.service';
-import { LoginComponent } from './auth/login/login.component';
-import { SignUpComponent } from './auth/sign-up/sign-up.component';
-import { SignInComponent } from './auth/sign-in/sign-in.component';
 
 
 const routes: Routes = [
