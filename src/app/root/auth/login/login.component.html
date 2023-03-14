@@ -1,1 +1,19 @@
-Add login page 
+<div class="login-in-container">
+    <h1>Tinker Web</h1>
+    <h2>Log in</h2>
+    <form [formGroup]="LoginForm">
+
+        <app-custom-input [formGroup]="LoginForm" controlName="email" label="Email" placeholder="Enter your email">
+        </app-custom-input>
+        <app-custom-input [formGroup]="LoginForm" controlName="password" label="Password" placeholder="Enter your password" [inputType]="passwordInput">
+        </app-custom-input>
+    </form>
+    <div class="actions">
+        <button mat-icon-button (click)="backToSignIn()" aria-label="Example icon button with a vertical three dot icon">
+            <img src="../../../../assets/images/arrow-left.svg" alt="Back icon"/>
+          </button>
+          <button (click)="submitData()" mat-icon-button aria-label="Example icon button with a vertical three dot icon">
+            <img src="../../../../assets/images/arrow-right.svg" alt="Next icon"/>
+          </button>
+    </div>
+</div>
