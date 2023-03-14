@@ -1,0 +1,31 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 11px;
+    line-height: 16px;
+    margin-bottom: 16px;
+    .error-icon{
+        width: 11px;
+        height: 11px;
+        position: fixed;
+        left: 28px;
+    }
+    label{
+        color: #121212;
+        margin-bottom: 4px;
+    }
+    .custom_input{
+        width: 363px;
+        height: 16px;
+        border-radius: 8px;
+        background: rgba(255, 64, 129, 0.5);
+        color:#353535;
+        padding: 10px 12px;
+        border: none;
+    }
+    .custom_input:focus{
+        outline: none;
+    }
+}

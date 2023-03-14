@@ -5,5 +5,6 @@ export enum RootRoutes {
     MODAL = 'modal',
     MODAL_OUTLET_NAME = 'modalOutlet',
     DELETE_THIS_EXAMPLE = 'feature',
-    DELETE_THIS_MODAL_EXAMPLE = 'modal-feature'
+    DELETE_THIS_MODAL_EXAMPLE = 'modal-feature',
+    AUTH = 'auth',
 }

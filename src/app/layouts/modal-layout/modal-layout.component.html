@@ -1,13 +1,5 @@
-<section class="modal-layout modal-layout__cover">
+<section class="modal-layout modal-layout__cover" #container>
     <div class="modal-layout__content-container">
-        
-        <div class="modal-layout__content">
-            <div class="modal-layout__close-container">
-                <button mat-mini-fab color="primary" (click)="closeDialog()">
-                    <mat-icon>close</mat-icon>
-                </button>
-            </div>
-            <router-outlet></router-outlet>
-        </div>
+        <router-outlet></router-outlet>
     </div>
 </section>

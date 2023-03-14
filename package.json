@@ -7,7 +7,8 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "build:docker": "ng build --output-path=dist",
-    "test": "ng test"
+    "test": "ng test",
+    "server": "json-server server/db.json -m ./node_modules/json-server-auth"
   },
   "private": true,
   "dependencies": {
@@ -21,6 +22,13 @@
     "@angular/platform-browser": "~13.0.0",
     "@angular/platform-browser-dynamic": "~13.0.0",
     "@angular/router": "~13.0.0",
+    "express": "^4.18.2",
+    "json-server": "^0.17.2",
+    "json-server-auth": "^2.1.0",
+    "nodemon": "^2.0.21",
+    "@types/crypto-js": "^4.1.1",
+    "bcryptjs": "^2.4.3",
+    "crypto-js": "^4.1.1",
     "rxjs": "~7.4.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
@@ -29,8 +37,9 @@
     "@angular-devkit/build-angular": "~13.0.2",
     "@angular/cli": "~13.0.2",
     "@angular/compiler-cli": "~13.0.0",
+    "@types/bcryptjs": "^2.4.2",
     "@types/jasmine": "~3.10.0",
-    "@types/node": "^12.11.1",
+    "@types/node": "^12.20.55",
     "jasmine-core": "~3.10.0",
     "karma": "~6.3.0",
     "karma-chrome-launcher": "~3.1.0",
