@@ -1,0 +1,13 @@
+<div class="container" [formGroup]="formGroup">
+    <img src="../../../../assets/images/error.svg"
+        class="error-icon"
+        *ngIf="formControlError"
+        [matTooltip]="formControlError"/>
+        <label>{{label}}:</label>
+        <input [type]="inputType" 
+            matInput 
+            [formControlName]="controlName" 
+            [placeholder]="placeholder" 
+            class="custom_input"
+            color="accent">
+</div>
