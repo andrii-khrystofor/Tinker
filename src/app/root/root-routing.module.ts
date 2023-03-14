@@ -6,6 +6,7 @@ import { RootRoutes } from '../types/enums/root-routes.enum';
 import { FeatureExampleComponent } from './feature-example/feature-example.component';
 import { ModalFeatureExampleComponent } from './modal-feature-example/modal-feature-example.component';
 import { RootComponent } from './root.component';
+import { AuthGuardService as AuthGuard } from '../core/guards/auth-guard.service';
 
 
 const routes: Routes = [
@@ -16,6 +17,7 @@ const routes: Routes = [
       {
         path: RootRoutes.MAIN,
         component: MainLayoutComponent,
+        canActivate: [AuthGuard],
         children: [
           {
             path: RootRoutes.DELETE_THIS_EXAMPLE,
@@ -31,6 +33,11 @@ const routes: Routes = [
           {
             path: RootRoutes.DELETE_THIS_MODAL_EXAMPLE,
             component: ModalFeatureExampleComponent,
+          },
+          {
+            path: RootRoutes.AUTH,
+            loadChildren: () =>
+              import('./auth/auth.module').then((m) => m.AuthModule),
           },
         ],
       },
