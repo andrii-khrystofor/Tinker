@@ -9,6 +9,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatTooltipModule } from '@angular/material/tooltip'
 import { ReactiveFormsModule } from '@angular/forms';
 import { CustomInputComponent } from './custom-input/custom-input.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -25,7 +26,8 @@ import { CustomInputComponent } from './custom-input/custom-input.component';
     AuthRoutingModule,
     MatButtonModule,
     ReactiveFormsModule,
-    MatTooltipModule
+    MatTooltipModule,
+    HttpClientModule
   ]
 })
 export class AuthModule { }

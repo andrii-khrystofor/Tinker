@@ -6,7 +6,7 @@ import { RootRoutes } from './types/enums/root-routes.enum';
 const routes: Routes = [
   {
     path: AppRoutes.EMPTY,
-    redirectTo: `${AppRoutes.ROOT}/${RootRoutes.MAIN}`,
+    redirectTo: `${AppRoutes.ROOT}/${RootRoutes.MAIN}/${RootRoutes.MESSENGER}`,
     pathMatch: 'full',
   },
   {

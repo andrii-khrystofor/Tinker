@@ -20,9 +20,10 @@ const routes: Routes = [
         canActivate: [AuthGuard],
         children: [
           {
-            path: RootRoutes.DELETE_THIS_EXAMPLE,
-            component: FeatureExampleComponent,
-          },
+            path: RootRoutes.MESSENGER,
+            loadChildren: () =>
+              import('./messenger/messenger.module').then((m) => m.MessengerModule),
+          }
         ],
       },
       {

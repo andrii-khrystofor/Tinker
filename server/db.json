@@ -6,6 +6,27 @@
       "name": "Test User",
       "username": "test",
       "id": 1
+    },
+    {
+      "email": "1@gm.com",
+      "password": "$2a$10$t7e0DcKnNsvDgVDSE.GKW.oVchlzUwLwUWGz/ly7K/XLddGUWjUK6",
+      "name": "Dima",
+      "username": "Krasavchik",
+      "id": 2
+    },
+    {
+      "email": "test@test.com",
+      "password": "$2a$10$xbHFuMvx851GGBvtD4XDw.N5gaBbhorkXHJ6UF8kPAGHPlTqCIZ0K",
+      "name": "Anton",
+      "username": "Chernov",
+      "id": 3
+    },
+    {
+      "email": "ihsdigu.g@gmail.com",
+      "password": "$2a$10$dHBR62P7PZqLtpsNmmn7IeHobik3upEeIlYGd1Ej4KKbN0b2Fvgy2",
+      "name": "Anton",
+      "username": "Chernov",
+      "id": 4
     }
   ]
 }
