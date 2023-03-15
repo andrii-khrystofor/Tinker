@@ -1,45 +1,42 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Subject} from 'rxjs';
 import { InputTypes } from 'src/app/types/enums/input-types.enum';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+    selector: 'app-login',
+    templateUrl: './login.component.html',
+    styleUrls: ['./login.component.scss']
 })
-export class LoginComponent{
-  
-  LoginForm: FormGroup = new FormGroup({
-      email: new FormControl('', [Validators.required, Validators.email]),
-      password: new FormControl('', Validators.required)
-  });
+export class LoginComponent {
 
-  passwordInput = InputTypes.Password;
+    LoginForm: FormGroup = new FormGroup({
+        email: new FormControl('', [Validators.required, Validators.email]),
+        password: new FormControl('', Validators.required)
+    });
 
-  constructor( private router: Router) { 
-  }
- 
-  submitData() {
-    this.LoginForm.markAllAsTouched();
+    passwordInput = InputTypes.Password;
+
+    constructor(private router: Router) {
     }
 
-backToSignIn() {
-  this.router.navigate([
-    '/root',
-    {
-      outlets: {
-        modalOutlet: [
-          'modal',
-          'auth',
-          'sign-in',
-        ],
-        dialogOutlet: null,
-      },
-    },
-  ]);
-}
+    submitData() {
+        this.LoginForm.markAllAsTouched();
+    }
 
-
+    backToSignIn() {
+        this.router.navigate([
+            '/root',
+            {
+                outlets: {
+                    modalOutlet: [
+                        'modal',
+                        'auth',
+                        'sign-in',
+                    ],
+                    dialogOutlet: null,
+                },
+            },
+        ]);
+    }
 }
