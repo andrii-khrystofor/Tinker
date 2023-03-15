@@ -9,10 +9,8 @@ import { InputTypes } from 'src/app/types/enums/input-types.enum';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit{
+export class LoginComponent{
   
-  private unsubscribe$ = new Subject();
-
   LoginForm: FormGroup = new FormGroup({
       email: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', Validators.required)
@@ -22,11 +20,7 @@ export class LoginComponent implements OnInit{
 
   constructor( private router: Router) { 
   }
-
-  ngOnInit(): void {
-      
-  }
-  
+ 
   submitData() {
     this.LoginForm.markAllAsTouched();
     }
