@@ -13,16 +13,15 @@
             </button>
         </div>
     </div>
+    <div>
     <div class="chats-list__chats">
         <div class="chat-list__chats label">
             <label>Pinned</label> 
             <img src="../../../../assets/images/Pinned.svg" alt="Pinned"/>
         </div>
-        <p>chat!</p>
-        <p>chat!</p>
-        <p>chat!</p>
-        <p>chat!</p>
-        <p>chat!</p>
+    <div class="chats">
+        <app-chat-in-list *ngFor="let chat of chats" [chat]="chat"></app-chat-in-list>
+    </div>
     </div>
     <div class="chats-list__chats">
         <div class="chat-list__chats label">
@@ -35,5 +34,6 @@
         <p>chat!</p>
         <p>chat!</p>
         <p>chat!</p>
+    </div>
     </div>
 </div>
