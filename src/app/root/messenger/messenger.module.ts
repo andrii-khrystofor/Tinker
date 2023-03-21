@@ -6,7 +6,8 @@ import { ChatsListComponent } from './chats-list/chats-list.component';
 import { ChatComponent } from './chat/chat.component';
 import { MessengerRoutingModule } from './messenger-routing.module';
 import { MatButtonModule } from '@angular/material/button';
-import { MatChipsModule } from '@angular/material/chips'
+import { MatChipsModule } from '@angular/material/chips';
+import { ChatPlaceholderComponent } from './chat-placeholder/chat-placeholder.component'
 
 
 
@@ -15,7 +16,8 @@ import { MatChipsModule } from '@angular/material/chips'
     MessengerComponent,
     LeftPanelComponent,
     ChatsListComponent,
-    ChatComponent
+    ChatComponent,
+    ChatPlaceholderComponent
   ],
   imports: [
     CommonModule,

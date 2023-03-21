@@ -5,11 +5,8 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './messenger.component.html',
   styleUrls: ['./messenger.component.scss']
 })
-export class MessengerComponent implements OnInit {
+export class MessengerComponent {
 
   constructor() { }
-
-  ngOnInit(): void {
-  }
-
+  
 }

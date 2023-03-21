@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { take } from 'rxjs';
 
 @Component({
   selector: 'app-chat',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ChatComponent implements OnInit {
 
-  constructor() { }
+  private chatId: number = -1;
+
+  constructor(private router: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.router.params.pipe(take(1)).subscribe(data => this.chatId = +data['id']);
   }
 
 }
