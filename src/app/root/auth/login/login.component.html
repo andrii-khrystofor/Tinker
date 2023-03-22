@@ -1,11 +1,11 @@
 <div class="login-in-container">
-    <h1>Tinker Web</h1>
-    <h2>Log in</h2>
+    <h1>{{'title' | translate}}</h1>
+    <h2>{{'login.title' | translate}}</h2>
     <form [formGroup]="loginForm">
 
-        <app-custom-input [formGroup]="loginForm" controlName="email" label="Email" placeholder="Enter your email">
+        <app-custom-input [formGroup]="loginForm" controlName="email" label="{{'login.email' | translate}}" placeholder="{{'login.enterEmail' | translate}}">
         </app-custom-input>
-        <app-custom-input [formGroup]="loginForm" controlName="password" label="Password" placeholder="Enter your password" [inputType]="passwordInput">
+        <app-custom-input [formGroup]="loginForm" controlName="password" label="{{'login.password' | translate}}" placeholder="{{'login.enterPassword' | translate}}" [inputType]="passwordInput">
         </app-custom-input>
     </form>
     <div class="actions">
