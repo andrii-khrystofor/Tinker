@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-sign-in',
@@ -8,7 +9,10 @@ import { Router } from '@angular/router';
 })
 export class SignInComponent {
 
-  constructor(private router: Router) { }
+  constructor(
+    private router: Router,
+    private translateService: TranslateService
+  ) { }
 
   navigateToSignUp() {
     this.router.navigate([
@@ -42,4 +46,17 @@ export class SignInComponent {
     ]);
   }
 
+  changeLanguage(): void {
+    const currentLanguage = localStorage.getItem('selectedLanguage');
+    switch (currentLanguage) {
+      case 'en':
+        this.translateService.use('ua');
+        localStorage.setItem('selectedLanguage', 'ua');
+        break;
+      case 'ua':
+        this.translateService.use('en');
+        localStorage.setItem('selectedLanguage', 'en');
+        break;
+    }
+  }
 }

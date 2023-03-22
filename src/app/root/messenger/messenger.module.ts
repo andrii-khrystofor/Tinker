@@ -10,6 +10,7 @@ import { MatChipsModule } from '@angular/material/chips';
 import { ChatPlaceholderComponent } from './chat-placeholder/chat-placeholder.component'
 import { ChatInListComponent } from './chat-in-list/chat-in-list.component';
 import { MessageComponent } from './message/message.component'
+import { TranslateModule } from '@ngx-translate/core';
 
 
 
@@ -28,6 +29,7 @@ import { MessageComponent } from './message/message.component'
     MessengerRoutingModule,
     MatButtonModule,
     MatChipsModule,
+    TranslateModule,
   ]
 })
 export class MessengerModule { }

@@ -1,7 +1,7 @@
 <div class="chats-list__container">
     <div class="chats-list__search">
         <div class="list-label">
-            <h2>Messages</h2>
+            <h2>{{'messenger.chats.messages' | translate}}</h2>
             <label class="chip">{{unreadMessages}}</label>
         </div>
         <div class="list-actions">
@@ -16,14 +16,14 @@
     <div class="chats-list__chats__container">
         <div class="chats-list__chats">
             <div class="chat-list__chats label">
-                <label>Pinned</label> 
+                <label>{{'messenger.chats.pinned' | translate}}</label> 
                 <img src="../../../../assets/images/Pinned.svg" alt="Pinned"/>
             </div>
             <app-chat-in-list *ngFor="let chat of pinnedChats" [chat]="chat"></app-chat-in-list>
         </div>
         <div class="chats-list__chats">
             <div class="chat-list__chats label">
-                <label>All messages</label>
+                <label>{{'messenger.chats.allMessages' | translate}}</label>
                 <img src="../../../../assets/images/Unpinned.svg" alt="All"/>
             </div>
             <app-chat-in-list *ngFor="let chat of unpinnedChats" [chat]="chat"></app-chat-in-list>
