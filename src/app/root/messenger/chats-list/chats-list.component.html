@@ -19,39 +19,14 @@
                 <label>Pinned</label> 
                 <img src="../../../../assets/images/Pinned.svg" alt="Pinned"/>
             </div>
-            <p>chat!</p>
-            <p>chat!</p>
-            <p>chat!</p>
-            <p>chat!</p>
-            <p>chat!</p>
+            <app-chat-in-list *ngFor="let chat of pinnedChats" [chat]="chat"></app-chat-in-list>
         </div>
         <div class="chats-list__chats">
             <div class="chat-list__chats label">
                 <label>All messages</label>
                 <img src="../../../../assets/images/Unpinned.svg" alt="All"/>
             </div>
-            
-            <p>chat!</p>
-            <p>chat!</p>
-            <p>chat!</p>
-            <p>chat!</p>
-            <p>chat!</p>
-            <p>chat!</p>
-            <p>chat!</p>
-            <p>chat!</p>
-            <p>chat!</p>
-            <p>chat!</p>
-            <p>chat!</p>
-            <p>chat!</p>
-            <p>chat!</p>
-            <p>chat!</p>
-            <p>chat!</p>
-            <p>chat!</p>
-            <p>chat!</p>
-            <p>chat!</p>
-            <p>chat!</p>
-            <p>chat!</p>
+            <app-chat-in-list *ngFor="let chat of unpinnedChats" [chat]="chat"></app-chat-in-list>
         </div>
-    </div>
     </div>
 </div>
