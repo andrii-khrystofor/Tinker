@@ -8,6 +8,7 @@ import { MessengerRoutingModule } from './messenger-routing.module';
 import { MatButtonModule } from '@angular/material/button';
 import { MatChipsModule } from '@angular/material/chips';
 import { ChatPlaceholderComponent } from './chat-placeholder/chat-placeholder.component'
+import { TranslateModule } from '@ngx-translate/core';
 
 
 
@@ -24,6 +25,7 @@ import { ChatPlaceholderComponent } from './chat-placeholder/chat-placeholder.co
     MessengerRoutingModule,
     MatButtonModule,
     MatChipsModule,
+    TranslateModule,
   ]
 })
 export class MessengerModule { }
