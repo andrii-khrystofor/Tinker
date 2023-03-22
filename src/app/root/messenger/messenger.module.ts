@@ -8,6 +8,7 @@ import { MessengerRoutingModule } from './messenger-routing.module';
 import { MatButtonModule } from '@angular/material/button';
 import { MatChipsModule } from '@angular/material/chips';
 import { ChatPlaceholderComponent } from './chat-placeholder/chat-placeholder.component'
+import { ChatInListComponent } from './chat-in-list/chat-in-list.component'
 
 
 
@@ -17,7 +18,8 @@ import { ChatPlaceholderComponent } from './chat-placeholder/chat-placeholder.co
     LeftPanelComponent,
     ChatsListComponent,
     ChatComponent,
-    ChatPlaceholderComponent
+    ChatPlaceholderComponent,
+    ChatInListComponent
   ],
   imports: [
     CommonModule,
