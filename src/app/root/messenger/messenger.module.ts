@@ -11,6 +11,7 @@ import { ChatPlaceholderComponent } from './chat-placeholder/chat-placeholder.co
 import { ChatInListComponent } from './chat-in-list/chat-in-list.component';
 import { MessageComponent } from './message/message.component'
 import { TranslateModule } from '@ngx-translate/core';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -22,12 +23,14 @@ import { TranslateModule } from '@ngx-translate/core';
     ChatComponent,
     ChatPlaceholderComponent,
     ChatInListComponent,
-    MessageComponent
+    MessageComponent,
+
   ],
   imports: [
     CommonModule,
     MessengerRoutingModule,
     MatButtonModule,
+    ReactiveFormsModule,
     MatChipsModule,
     TranslateModule,
   ]

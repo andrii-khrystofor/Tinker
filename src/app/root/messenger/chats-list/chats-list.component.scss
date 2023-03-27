@@ -62,7 +62,8 @@
     &__chats{
 
         &__container{
-            overflow-y: scroll;
+            overflow-y: auto;
+            overflow-x: hidden;
             height: calc(100vh - 150px);
             margin-bottom: 30px;
         }

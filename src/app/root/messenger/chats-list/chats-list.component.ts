@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subject, takeUntil } from 'rxjs';
+import { ChatService } from 'src/app/core/services/chat.service';
 import { Chat } from 'src/app/types/models/chat.model';
 
 @Component({
@@ -6,47 +8,28 @@ import { Chat } from 'src/app/types/models/chat.model';
   templateUrl: './chats-list.component.html',
   styleUrls: ['./chats-list.component.scss']
 })
-export class ChatsListComponent implements OnInit {
+export class ChatsListComponent implements OnInit, OnDestroy {
+  
+	private unsubscribe$ = new Subject();
+
+  pinnedChats: Chat[] = [];
+  unpinnedChats: Chat[] = [];
 
   unreadMessages = 50;
 
-  constructor() { }
+  constructor(private chatService: ChatService) { }
 
   ngOnInit(): void {
+    this.chatService.updateChatsList();
+    this.chatService.chats$.pipe(takeUntil(this.unsubscribe$)).subscribe((data) => {
+      this.pinnedChats = data.filter((chat) => chat.isPinned);
+      this.unpinnedChats = data.filter((chat) => !chat.isPinned);
+    })
   }
-  chats: Chat[] = [{
-    name: 'Biba',
-    description: 'Boba',
-    id:0
-  },{
-    name: 'Biba1',
-    description: 'Boba1',
-    id:1
-  },{
-    name: 'Biba2',
-    description: 'Boba2',
-    id:2
-  },{
-    name: 'Biba3',
-    description: 'Boba3',
-    id:3
-  },
-  {
-    name: 'Biba',
-    description: 'Boba',
-    id:4
-  },{
-    name: 'Biba1',
-    description: 'Boba1',
-    id:5
-  },{
-    name: 'Biba2',
-    description: 'Boba2',
-    id:6
-  },{
-    name: 'Biba3',
-    description: 'Boba3',
-    id:7
+
+  ngOnDestroy(): void {
+    this.unsubscribe$.next(0);
+    this.unsubscribe$.complete();
   }
-  ]
+  
 }
