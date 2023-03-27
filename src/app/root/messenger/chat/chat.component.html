@@ -1,0 +1,23 @@
+<div class="chat__container">
+    <div class="chat__info">
+        <div class="info">
+            <div class="img"><img src="../../../../assets/images/user.svg" alt="user" /></div>
+            <h2 class="h2">{{chat?.name}}</h2>
+        </div>
+        <div class="actions">
+            <button mat-icon-button class="chat__action">
+                <img src="../../../../assets/images/search.svg" alt="Search message"/>
+            </button>
+            <button mat-icon-button class="chat__action">
+                <img src="../../../../assets/images/more.svg" alt="More"/>
+            </button>
+        </div>
+    </div>
+    <div class="chat__messages">
+        <app-message *ngFor="let message of chatService.messages$ | async" [message]="message"></app-message>
+    </div>
+    <div class="chat__input__container">
+        <input class="secondary" placeholder="write a message" [formControl]="messageControl">
+        <img src="../../../../assets/images/arrow-right.svg" (click)="sendMessage()">
+    </div>
+    </div>

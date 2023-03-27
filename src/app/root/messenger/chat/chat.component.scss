@@ -1,0 +1,95 @@
+.chat {
+    &__container {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+
+        >div {
+            padding: 0px 36px;
+        }
+    }
+
+    &__info {
+        height: 50px;
+        border-bottom: 4px solid #FF4081;
+        padding-top: 11px !important;
+        padding-bottom: 11px !important;
+        display: flex;
+
+        align-items: center;
+        justify-content: space-between;
+
+        .img {
+            border-radius: 40px;
+            background-color: #FFFFFF;
+            height: 40px;
+            min-width: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            img {
+                width: 24px;
+                height: 24px;
+            }
+        }
+
+        >.actions {
+            display: flex;
+            gap: 20px;
+        }
+
+        >.info {
+            display: flex;
+            align-items: center;
+            gap: 11px;
+        }
+    }
+
+    &__action {
+        background-color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &__input {
+        &__container {
+            width: calc(100% - 72px);
+            margin-bottom: 32px;
+            display: flex;
+
+            align-items: center;
+
+            >input {
+                width: calc(100% - 40px);
+                background: #FAFAFA;
+                border-radius: 20px;
+                padding: 12px 20px;
+                height: 20px;
+                color: #353535;
+                outline: none;
+                border: none;
+            }
+
+            >input:focus {
+                outline: none;
+                border: none;
+            }
+            >img{
+                position: fixed;
+                right: 56px;
+                cursor: pointer;
+            }
+        }
+    }
+
+    &__messages {
+        flex: 1;
+        margin: 40px 0;
+        overflow-y: scroll;
+        height: 100%;
+    }
+
+}

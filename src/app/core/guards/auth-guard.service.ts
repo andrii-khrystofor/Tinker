@@ -9,21 +9,25 @@ export class AuthGuardService implements CanActivate {
     constructor(public auth: AuthService, public router: Router) {}
     canActivate(): boolean {
         if (!this.auth.isAuthenticated()) {
-            this.router.navigate([
-                '/root',
-                {
-                    outlets: {
-                    modalOutlet: [
-                        'modal',
-                        'auth',
-                        'sign-in',
-                    ],
-                    dialogOutlet: null,
-                    },
-                },
-            ]);
+            this.navigateToSingIn();
             return false;
         }
         return true;
+    }
+
+    navigateToSingIn(): void {
+        this.router.navigate([
+            '/root',
+            {
+                outlets: {
+                modalOutlet: [
+                    'modal',
+                    'auth',
+                    'sign-in',
+                ],
+                dialogOutlet: null,
+                },
+            },
+        ]);
     }
 }

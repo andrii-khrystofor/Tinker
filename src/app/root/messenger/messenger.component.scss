@@ -1,0 +1,13 @@
+.messanger-container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    gap: 11px;
+    background-color: #673AB7;
+}
+
+.chat-container{
+    flex: 1;
+    background-color: rgba(250, 250, 250, 0.7);
+    border-radius: 20px 0px 0px 20px;
+}
