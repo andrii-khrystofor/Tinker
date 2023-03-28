@@ -32,6 +32,26 @@
             "pinned": "Pinned",
             "allMessages": "All messages"
         },
-        "placeholder": "Choose who you want to text"
+        "placeholder": "Choose who you want to text",
+        "settings": {
+            "title": "Settings",
+            "profile": {
+                "title": "Profile",
+                "changeName": "Change name",
+                "changeUsername": "Change username",
+                "changeEmail": "Change email"
+            },
+            "language": {
+                "title": "Language",
+                "chooseLanguage": "Choose language"
+            },
+            "colorTheme": {
+                "title": "Choose theme",
+                "theme1": "Theme 1",
+                "theme2": "Theme 2",
+                "theme3": "Theme 3",
+                "theme4": "Theme 4"
+            }
+        }
     }
 }

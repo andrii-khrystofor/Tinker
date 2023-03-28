@@ -9,6 +9,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatChipsModule } from '@angular/material/chips';
 import { ChatPlaceholderComponent } from './chat-placeholder/chat-placeholder.component'
 import { TranslateModule } from '@ngx-translate/core';
+import { SettingsComponent } from './settings/settings.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatSelectModule } from '@angular/material/select';
+import { MatIconModule } from '@angular/material/icon';
 
 
 
@@ -18,7 +22,8 @@ import { TranslateModule } from '@ngx-translate/core';
     LeftPanelComponent,
     ChatsListComponent,
     ChatComponent,
-    ChatPlaceholderComponent
+    ChatPlaceholderComponent,
+    SettingsComponent
   ],
   imports: [
     CommonModule,
@@ -26,6 +31,9 @@ import { TranslateModule } from '@ngx-translate/core';
     MatButtonModule,
     MatChipsModule,
     TranslateModule,
+    ReactiveFormsModule,
+    MatSelectModule,
+    MatIconModule,
   ]
 })
 export class MessengerModule { }

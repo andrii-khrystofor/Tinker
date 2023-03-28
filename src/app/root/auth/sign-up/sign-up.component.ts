@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { catchError, of, Subject, takeUntil } from 'rxjs';
@@ -13,6 +13,18 @@ import { samePasswords } from '../passwords.validator';
 	styleUrls: ['./sign-up.component.scss']
 })
 export class SignUpComponent implements OnInit, OnDestroy {
+
+	@HostListener('document:keydown', ['$event'])
+    listenToEscPress(event: KeyboardEvent): void {
+        switch (event.key) {
+            case 'Enter':
+                this.submitData();
+                break;
+            case 'Escape':
+                this.backToSignIn();
+                break;
+        }
+    }
 
 	private unsubscribe$ = new Subject();
 

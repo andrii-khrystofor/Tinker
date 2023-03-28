@@ -9,9 +9,23 @@ import { AuthGuardService } from 'src/app/core/guards/auth-guard.service';
 })
 export class LeftPanelComponent implements OnInit {
 
-    constructor(private authGuard: AuthGuardService) { }
+    constructor(private authGuard: AuthGuardService, private router: Router) { }
 
     ngOnInit(): void {
+    }
+
+    navigateToSettings(): void {
+        this.router.navigate([
+            '/root/main/messenger',
+            {
+                outlets: {
+                    modalOutlet: [
+                        'modal',
+                        'settings',
+                    ]
+                },
+            },
+        ]);
     }
 
     logOut(): void {

@@ -32,6 +32,26 @@
             "pinned": "Закріплені",
             "allMessages": "Усі повідомлення"
         },
-        "placeholder": "Оберіть чат"
+        "placeholder": "Оберіть чат",
+        "settings": {
+            "title": "Налаштування",
+            "profile": {
+                "title": "Профіль",
+                "changeName": "Змінити ім'я",
+                "changeUsername": "Змінити ім'я користувача",
+                "changeEmail": "Змінити email"
+            },
+            "language": {
+                "title": "Мова",
+                "chooseLanguage": "Обрати мову"
+            },
+            "colorTheme": {
+                "title": "Обрати тему",
+                "theme1": "Тема 1",
+                "theme2": "Тема 2",
+                "theme3": "Тема 3",
+                "theme4": "Тема 4"
+            }
+        }
     }
 }

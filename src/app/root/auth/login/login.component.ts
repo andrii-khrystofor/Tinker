@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { catchError, of } from 'rxjs';
@@ -12,6 +12,18 @@ import { hashPassword } from '../passwordHash';
     styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
+
+    @HostListener('document:keydown', ['$event'])
+    listenToEscPress(event: KeyboardEvent): void {
+        switch (event.key) {
+            case 'Enter':
+                this.submitData();
+                break;
+            case 'Escape':
+                this.backToSignIn();
+                break;
+        }
+    }
 
     loginForm: FormGroup = new FormGroup({
         email: new FormControl('', [Validators.required, Validators.email]),
@@ -26,21 +38,21 @@ export class LoginComponent {
     submitData() {
         this.loginForm.markAllAsTouched();
         if (this.loginForm.valid) {
-			const valueToSend = JSON.parse(JSON.stringify(this.loginForm.value));
-			valueToSend.password = hashPassword(valueToSend.password);
+            const valueToSend = JSON.parse(JSON.stringify(this.loginForm.value));
+            valueToSend.password = hashPassword(valueToSend.password);
 
-			this.http.post('api/login', {
-				...valueToSend
-			})
-				.pipe(catchError(error => of(error)))
-				.subscribe((response: any) => {
-					if (response.error) {
-						return;
-					}
-					localStorage.setItem('authToken', response?.accessToken);
-					this.router.navigateByUrl('/root/main/messenger');
-				});
-		}
+            this.http.post('api/login', {
+                ...valueToSend
+            })
+                .pipe(catchError(error => of(error)))
+                .subscribe((response: any) => {
+                    if (response.error) {
+                        return;
+                    }
+                    localStorage.setItem('authToken', response?.accessToken);
+                    this.router.navigateByUrl('/root/main/messenger');
+                });
+        }
     }
 
     backToSignIn() {
