@@ -4,5 +4,6 @@ export enum MessengerRoutes {
     LOGIN = 'login',
     SIGN_UP = 'sign-up',
     SETTINGS = 'settings',
-    CONTACTS = 'contacts'
+    CONTACTS = 'contacts',
+    CREATE_CHAT = 'create-chat'
 }

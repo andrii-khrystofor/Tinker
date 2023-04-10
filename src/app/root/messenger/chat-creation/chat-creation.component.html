@@ -1,0 +1,37 @@
+<div class="createChat__container">
+  <div class="createChat__close-container">
+    <button mat-icon-button color="primary" (click)="closeModal()">
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+
+  <h2 class="createChat__title">{{'messenger.createChat.title' | translate}}</h2>
+  <section *ngIf="isFetchingContacts" class="createChat__preloader">
+    <mat-spinner></mat-spinner>
+  </section>
+
+  <section *ngIf="!isFetchingContacts" class="createChat__content">
+    <div class="createChat__search">
+      <input class="secondary" placeholder="{{'messenger.createChat.chatNamePlaceholder' | translate}}" [(ngModel)]="chatName">
+    </div>
+    <div class="createChat__search">
+      <input class="secondary" placeholder="{{'messenger.contacts.searchPlaceholder' | translate}}" [(ngModel)]="searchKey" #contactUsername>
+      <img src="../../../../assets/images/search.svg">
+    </div>
+
+    <div *ngFor="let contact of (contacts | searchContacts : searchKey)" class="createChat__contact contact" [ngClass]="{'selected': isUserSelected(contact)}"
+         (click)="addToChat(contact)">
+      <div class="contact__logo"><img src="../../../../assets/images/user.svg" alt="user" /></div>
+      <div class="contact__info">
+        <p class="contact_main main">{{contact.name}}</p>
+        <p class="contact_third third">{{contact.username}}</p>
+      </div>
+    </div>
+
+    <div *ngIf="chatName && selectedUsers.length" class="createChat__add-chat">
+      <button mat-button (click)="createGroupChat()">
+        {{'messenger.createChat.addChat' | translate}}
+      </button>
+    </div>
+  </section>
+</div>

@@ -48,7 +48,9 @@ export class LeftPanelComponent implements OnInit {
 
     logOut(): void {
         localStorage.removeItem('authToken');
+
         this.authGuard.navigateToSingIn();
+      window.location.reload();
     }
 
 }

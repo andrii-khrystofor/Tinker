@@ -59,6 +59,10 @@
             "title": "Контакти",
             "searchPlaceholder": "введіть ім'я користувача",
             "addContact": "Додати контакт"
-        }
+        },"createChat": {
+        "title": "Створити чат",
+        "addChat": "Додати чат",
+        "chatNamePlaceholder": "Введіть ім'я чату"
+      }
     }
 }

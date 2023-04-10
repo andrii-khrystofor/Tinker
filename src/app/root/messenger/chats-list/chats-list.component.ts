@@ -5,6 +5,7 @@ import { WebSocketService } from 'src/app/core/services/web-socket/web-socket.se
 import { Chat } from 'src/app/types/models/chat.model';
 import jwt_decode from "jwt-decode";
 import { User } from 'src/app/types/interfaces/user';
+import {Router} from "@angular/router";
 
 @Component({
     selector: 'app-chats-list',
@@ -24,7 +25,7 @@ export class ChatsListComponent implements OnInit, OnDestroy {
     chats: any;
     isChatListLoading = false;
 
-    constructor(private chatService: ChatService, private webSocketService: WebSocketService) { }
+    constructor(private chatService: ChatService, private webSocketService: WebSocketService, private router: Router) { }
 
     ngOnInit(): void {
         // this.chatService.updateChatsList();
@@ -37,6 +38,7 @@ export class ChatsListComponent implements OnInit, OnDestroy {
 
 
         this.user = jwt_decode(localStorage.getItem('authToken') || '');
+        console.log(this.user);
 
         this.webSocketService.emit('listChatsByUser', {
             userId: this.user.id
@@ -61,6 +63,21 @@ export class ChatsListComponent implements OnInit, OnDestroy {
     ngOnDestroy(): void {
         this.unsubscribe$.next(0);
         this.unsubscribe$.complete();
+    }
+
+    createNewGroupChat(): void {
+        this.router.navigate([
+            '/root/main/messenger',
+            {
+                outlets: {
+                    modalOutlet: [
+                        'modal',
+                        'create-chat',
+                    ]
+                    },
+                },
+            ]);
+
     }
 
 }

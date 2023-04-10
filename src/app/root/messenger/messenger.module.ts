@@ -18,6 +18,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { ContactsComponent } from './contacts/contacts.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { ChatCreationComponent } from './chat-creation/chat-creation.component';
 
 
 
@@ -32,6 +33,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
     ChatInListComponent,
     MessageComponent,
     ContactsComponent,
+    ChatCreationComponent,
   ],
   imports: [
     CommonModule,

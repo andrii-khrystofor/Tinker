@@ -8,7 +8,7 @@
             <input placeholder="{{'messenger.search' | translate}}"/>
             <img src="../../../../assets/images/search.svg" alt="search" class="search"/>
 
-            <button mat-icon-button class="chats-list__action">
+            <button mat-icon-button class="chats-list__action" (click)="createNewGroupChat()">
                 <img src="../../../../assets/images/plus-circle.svg" alt="New chat"/>
             </button>
         </div>
@@ -16,7 +16,7 @@
     <div class="chats-list__chats__container" *ngIf="!isChatListLoading">
         <div class="chats-list__chats" *ngIf="pinnedChats.length > 0">
             <div class="chat-list__chats label">
-                <label>{{'messenger.chats.pinned' | translate}}</label> 
+                <label>{{'messenger.chats.pinned' | translate}}</label>
                 <img src="../../../../assets/images/Pinned.svg" alt="Pinned"/>
             </div>
             <app-chat-in-list *ngFor="let chat of pinnedChats" [chat]="chat"></app-chat-in-list>

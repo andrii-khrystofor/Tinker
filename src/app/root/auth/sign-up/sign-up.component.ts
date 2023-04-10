@@ -6,6 +6,7 @@ import { catchError, of, Subject, takeUntil } from 'rxjs';
 import { InputTypes } from 'src/app/types/enums/input-types.enum';
 import { hashPassword } from '../passwordHash';
 import { samePasswords } from '../passwords.validator';
+import {WebSocketService} from "../../../core/services/web-socket/web-socket.service";
 
 @Component({
 	selector: 'app-sign-up',
@@ -38,7 +39,7 @@ export class SignUpComponent implements OnInit, OnDestroy {
 
 	passwordInput = InputTypes.Password;
 
-	constructor(private router: Router, private http: HttpClient) {
+	constructor(private router: Router, private http: HttpClient, private wsService: WebSocketService) {
 	}
 
 	ngOnInit(): void {
@@ -67,6 +68,7 @@ export class SignUpComponent implements OnInit, OnDestroy {
 						return;
 					}
 					localStorage.setItem('authToken', response?.accessToken);
+          this.wsService.startConnectionForCurrentUser();
 					this.router.navigateByUrl('/root/main/messenger');
 				});
 		}

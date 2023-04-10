@@ -59,6 +59,11 @@
             "title": "Contacts",
             "searchPlaceholder": "enter username",
             "addContact": "Add contact"
-        }
+        },
+      "createChat": {
+        "title": "Create chat",
+        "addChat": "Add chat",
+        "chatNamePlaceholder": "Enter chat name"
+      }
     }
 }

@@ -16,18 +16,19 @@ export class AuthGuardService implements CanActivate {
     }
 
     navigateToSingIn(): void {
+      console.log('ta tyt ya blyad')
         this.router.navigate([
             '/root',
             {
                 outlets: {
-                modalOutlet: [
-                    'modal',
-                    'auth',
-                    'sign-in',
-                ],
-                dialogOutlet: null,
+                  modalOutlet: [
+                      'modal',
+                      'auth',
+                      'sign-in',
+                  ],
+                  dialogOutlet: null,
                 },
             },
-        ]);
+        ], );
     }
 }

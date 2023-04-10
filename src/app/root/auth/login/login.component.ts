@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { catchError, of } from 'rxjs';
 import { InputTypes } from 'src/app/types/enums/input-types.enum';
 import { hashPassword } from '../passwordHash';
+import {WebSocketService} from "../../../core/services/web-socket/web-socket.service";
 
 @Component({
     selector: 'app-login',
@@ -35,7 +36,7 @@ export class LoginComponent {
 
     passwordInput = InputTypes.Password;
 
-    constructor(private router: Router, private http: HttpClient) {
+    constructor(private router: Router, private http: HttpClient, private wsService: WebSocketService) {
     }
 
     submitData() {
@@ -58,6 +59,7 @@ export class LoginComponent {
                         return;
                     }
                     localStorage.setItem('authToken', response?.accessToken);
+                    this.wsService.startConnectionForCurrentUser();
                     this.router.navigateByUrl('/root/main/messenger');
 
                     this.isLoading = false;
