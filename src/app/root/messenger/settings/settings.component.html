@@ -12,8 +12,8 @@
             <section class="settings__header header">
                 <div class="header__photo"></div>
                 <div class="header__info">
-                    <h2 class="header__name">Ofelia Limberty</h2>
-                    <div class="header__username">@username_ofelia</div>
+                    <h2 class="header__name">{{user.name}}</h2>
+                    <div class="header__username">{{user.username}}</div>
                 </div>
             </section>
 
@@ -23,15 +23,15 @@
                     <div class="user-data__item">
                         <div class="user-data__label">{{'messenger.settings.profile.changeName' | translate}}</div>
                         <!-- <div class="user-data__input" contenteditable="true" formControlName="name"></div> -->
-                        <input class="user-data__input" formControlName="name">
+                        <input class="user-data__input" formControlName="name" (blur)="updateUser()">
                     </div>
                     <div class="user-data__item">
                         <div class="user-data__label">{{'messenger.settings.profile.changeUsername' | translate}}</div>
-                        <input class="user-data__input" formControlName="username">
+                        <input class="user-data__input" formControlName="username" (blur)="updateUser()">
                     </div>
                     <div class="user-data__item">
                         <div class="user-data__label">{{'messenger.settings.profile.changeEmail' | translate}}</div>
-                        <input class="user-data__input" formControlName="email">
+                        <input class="user-data__input" formControlName="email" (blur)="updateUser()">
                     </div>
                 </div>
             </section>

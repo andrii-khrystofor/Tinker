@@ -5,6 +5,7 @@ import { MessengerRoutes } from "src/app/types/enums/messenger-routes.enum";
 import { RootRoutes } from "src/app/types/enums/root-routes.enum";
 import { ChatPlaceholderComponent } from "./chat-placeholder/chat-placeholder.component";
 import { ChatComponent } from "./chat/chat.component";
+import { ContactsComponent } from "./contacts/contacts.component";
 import { MessengerComponent } from "./messenger.component";
 import { SettingsComponent } from "./settings/settings.component";
 
@@ -29,6 +30,10 @@ const routes: Routes = [
 					{
 						path: MessengerRoutes.SETTINGS,
 						component: SettingsComponent
+					},
+					{
+						path: MessengerRoutes.CONTACTS,
+						component: ContactsComponent
 					},
 				],
 			},

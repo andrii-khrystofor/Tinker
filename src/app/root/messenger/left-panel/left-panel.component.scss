@@ -9,6 +9,9 @@
         flex-direction: column;
         align-items: center;
     }
+    &__logo {
+        cursor: pointer;
+    }
     &__action{
         background-color: white;
         display: flex;

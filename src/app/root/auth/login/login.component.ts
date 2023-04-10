@@ -25,6 +25,9 @@ export class LoginComponent {
         }
     }
 
+    isLoading = false;
+    isLoginError = false;
+
     loginForm: FormGroup = new FormGroup({
         email: new FormControl('', [Validators.required, Validators.email]),
         password: new FormControl('', Validators.required)
@@ -41,16 +44,23 @@ export class LoginComponent {
             const valueToSend = JSON.parse(JSON.stringify(this.loginForm.value));
             valueToSend.password = hashPassword(valueToSend.password);
 
+            this.isLoading = true;
+            this.isLoginError = false;
+
             this.http.post('api/login', {
                 ...valueToSend
             })
                 .pipe(catchError(error => of(error)))
                 .subscribe((response: any) => {
                     if (response.error) {
+                        this.isLoginError = true;
+                        this.isLoading = false;
                         return;
                     }
                     localStorage.setItem('authToken', response?.accessToken);
                     this.router.navigateByUrl('/root/main/messenger');
+
+                    this.isLoading = false;
                 });
         }
     }

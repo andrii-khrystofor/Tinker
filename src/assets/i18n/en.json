@@ -32,7 +32,9 @@
             "pinned": "Pinned",
             "allMessages": "All messages"
         },
+        "search": "search",
         "placeholder": "Choose who you want to text",
+        "writeMwssage": "write a message",
         "settings": {
             "title": "Settings",
             "profile": {
@@ -52,6 +54,11 @@
                 "theme3": "Theme 3",
                 "theme4": "Theme 4"
             }
+        },
+        "contacts": {
+            "title": "Contacts",
+            "searchPlaceholder": "enter username",
+            "addContact": "Add contact"
         }
     }
 }

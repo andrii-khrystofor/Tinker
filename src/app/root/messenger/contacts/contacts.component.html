@@ -1,0 +1,34 @@
+<div class="contacts__container">
+    <div class="contacts__close-container">
+        <button mat-icon-button color="primary" (click)="closeContacts()">
+            <mat-icon>close</mat-icon>
+        </button>
+    </div>
+
+    <h2 class="contacts__title">{{'messenger.contacts.title' | translate}}</h2>
+
+    <section *ngIf="isFetchingContacts" class="contacts__preloader">
+        <mat-spinner></mat-spinner>
+    </section>
+
+    <section *ngIf="!isFetchingContacts" class="contacts__content">
+        <div class="contacts__search">
+            <input class="secondary" placeholder="{{'messenger.contacts.searchPlaceholder' | translate}}" [(ngModel)]="searchKey" #contactUsername>
+            <img src="../../../../assets/images/search.svg">
+        </div>
+
+        <div *ngFor="let contact of (contacts | searchContacts : searchKey)" class="contacts__contact contact" (click)="addChat(contact)">
+            <div class="contact__logo"><img src="../../../../assets/images/user.svg" alt="user" /></div>
+            <div class="contact__info">
+                <p class="contact_main main">{{contact.name}}</p>
+                <p class="contact_third third">{{contact.username}}</p>
+            </div>
+        </div>
+
+        <div *ngIf="(contacts | searchContacts : searchKey).length === 0" class="contacts__add-contact">
+             <button mat-button (click)="addContact()">
+                {{'messenger.contacts.addContact' | translate}}
+            </button>
+        </div>
+    </section>
+</div>

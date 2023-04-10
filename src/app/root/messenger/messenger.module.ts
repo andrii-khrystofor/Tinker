@@ -8,11 +8,16 @@ import { MessengerRoutingModule } from './messenger-routing.module';
 import { MatButtonModule } from '@angular/material/button';
 import { MatChipsModule } from '@angular/material/chips';
 import { ChatPlaceholderComponent } from './chat-placeholder/chat-placeholder.component'
+import { ChatInListComponent } from './chat-in-list/chat-in-list.component';
+import { MessageComponent } from './message/message.component'
 import { TranslateModule } from '@ngx-translate/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SettingsComponent } from './settings/settings.component';
-import { ReactiveFormsModule } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
 import { MatIconModule } from '@angular/material/icon';
+import { ContactsComponent } from './contacts/contacts.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 
@@ -23,17 +28,24 @@ import { MatIconModule } from '@angular/material/icon';
     ChatsListComponent,
     ChatComponent,
     ChatPlaceholderComponent,
-    SettingsComponent
+    SettingsComponent,
+    ChatInListComponent,
+    MessageComponent,
+    ContactsComponent,
   ],
   imports: [
     CommonModule,
     MessengerRoutingModule,
     MatButtonModule,
+    ReactiveFormsModule,
     MatChipsModule,
     TranslateModule,
     ReactiveFormsModule,
     MatSelectModule,
     MatIconModule,
+    FormsModule,
+    MatProgressSpinnerModule,
+    SharedModule,
   ]
 })
 export class MessengerModule { }

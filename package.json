@@ -8,7 +8,8 @@
     "watch": "ng build --watch --configuration development",
     "build:docker": "ng build --output-path=dist",
     "test": "ng test",
-    "server": "json-server server/db.json -m ./node_modules/json-server-auth"
+    "server": "json-server server/db.json -m ./node_modules/json-server-auth",
+    "generate": "ng g component root/messenger/chatInList"
   },
   "private": true,
   "dependencies": {
@@ -30,8 +31,10 @@
     "express": "^4.18.2",
     "json-server": "^0.17.2",
     "json-server-auth": "^2.1.0",
+    "jwt-decode": "^3.1.2",
     "nodemon": "^2.0.21",
     "rxjs": "~7.4.0",
+    "socket.io-client": "^4.6.1",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
   },

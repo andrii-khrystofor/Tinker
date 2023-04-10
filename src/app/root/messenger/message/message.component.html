@@ -1,0 +1,16 @@
+<div class="message__row" [ngClass]="{'recieved': message.senderId !== user.id, 'sent': message.senderId === user.id}">
+    <div class="message__container">
+
+    
+        <div class="message__textBox">
+            <p class="main">
+                {{message.message}}
+            </p>
+        </div>
+        <div class="message__timeStamp">
+            <p class="message__timeStamp-text">
+                {{message.sentTime | date: 'h:mm a'}}
+            </p>
+        </div>
+    </div>
+</div>

@@ -8,12 +8,15 @@
         <app-custom-input [formGroup]="loginForm" controlName="password" label="{{'login.password' | translate}}" placeholder="{{'login.enterPassword' | translate}}" [inputType]="passwordInput">
         </app-custom-input>
     </form>
-    <div class="actions">
+    <div class="actions" *ngIf="!isLoading">
         <button mat-icon-button (click)="backToSignIn()" aria-label="Example icon button with a vertical three dot icon">
             <img src="../../../../assets/images/arrow-left.svg" alt="Back icon"/>
           </button>
           <button (click)="submitData()" mat-icon-button aria-label="Example icon button with a vertical three dot icon">
             <img src="../../../../assets/images/arrow-right.svg" alt="Next icon"/>
           </button>
+    </div>
+    <div *ngIf="isLoginError">
+      Error occurred
     </div>
 </div>

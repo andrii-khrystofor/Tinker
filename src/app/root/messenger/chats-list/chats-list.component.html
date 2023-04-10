@@ -5,7 +5,7 @@
             <label class="chip">{{unreadMessages}}</label>
         </div>
         <div class="list-actions">
-            <input placeholder="search"/>
+            <input placeholder="{{'messenger.search' | translate}}"/>
             <img src="../../../../assets/images/search.svg" alt="search" class="search"/>
 
             <button mat-icon-button class="chats-list__action">
@@ -13,44 +13,23 @@
             </button>
         </div>
     </div>
-    <div class="chats-list__chats__container">
-        <div class="chats-list__chats">
+    <div class="chats-list__chats__container" *ngIf="!isChatListLoading">
+        <div class="chats-list__chats" *ngIf="pinnedChats.length > 0">
             <div class="chat-list__chats label">
                 <label>{{'messenger.chats.pinned' | translate}}</label> 
                 <img src="../../../../assets/images/Pinned.svg" alt="Pinned"/>
             </div>
-            <p>chat!</p>
-            <p>chat!</p>
-            <p>chat!</p>
-            <p>chat!</p>
-            <p>chat!</p>
+            <app-chat-in-list *ngFor="let chat of pinnedChats" [chat]="chat"></app-chat-in-list>
         </div>
         <div class="chats-list__chats">
             <div class="chat-list__chats label">
                 <label>{{'messenger.chats.allMessages' | translate}}</label>
                 <img src="../../../../assets/images/Unpinned.svg" alt="All"/>
             </div>
-            
-            <p>chat!</p>
-            <p>chat!</p>
-            <p>chat!</p>
-            <p>chat!</p>
-            <p>chat!</p>
-            <p>chat!</p>
-            <p>chat!</p>
-            <p>chat!</p>
-            <p>chat!</p>
-            <p>chat!</p>
-            <p>chat!</p>
-            <p>chat!</p>
-            <p>chat!</p>
-            <p>chat!</p>
-            <p>chat!</p>
-            <p>chat!</p>
-            <p>chat!</p>
-            <p>chat!</p>
-            <p>chat!</p>
-            <p>chat!</p>
+            <app-chat-in-list *ngFor="let chat of unpinnedChats" [chat]="chat"></app-chat-in-list>
         </div>
+    </div>
+    <div class="chats-list__preloader" *ngIf="isChatListLoading">
+        <mat-spinner></mat-spinner>
     </div>
 </div>

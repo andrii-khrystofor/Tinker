@@ -32,7 +32,9 @@
             "pinned": "Закріплені",
             "allMessages": "Усі повідомлення"
         },
+        "search": "пошук",
         "placeholder": "Оберіть чат",
+        "writeMwssage": "напишіть повідомлення",
         "settings": {
             "title": "Налаштування",
             "profile": {
@@ -52,6 +54,11 @@
                 "theme3": "Тема 3",
                 "theme4": "Тема 4"
             }
+        },
+        "contacts": {
+            "title": "Контакти",
+            "searchPlaceholder": "введіть ім'я користувача",
+            "addContact": "Додати контакт"
         }
     }
 }

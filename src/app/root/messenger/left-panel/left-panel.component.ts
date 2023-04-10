@@ -14,6 +14,10 @@ export class LeftPanelComponent implements OnInit {
     ngOnInit(): void {
     }
 
+    navigateToMainPage(): void {
+        this.router.navigate(['/root/main/messenger']);
+    }
+
     navigateToSettings(): void {
         this.router.navigate([
             '/root/main/messenger',
@@ -22,6 +26,20 @@ export class LeftPanelComponent implements OnInit {
                     modalOutlet: [
                         'modal',
                         'settings',
+                    ]
+                },
+            },
+        ]);
+    }
+
+    navigateToContacts(): void {
+        this.router.navigate([
+            '/root/main/messenger',
+            {
+                outlets: {
+                    modalOutlet: [
+                        'modal',
+                        'contacts',
                     ]
                 },
             },
