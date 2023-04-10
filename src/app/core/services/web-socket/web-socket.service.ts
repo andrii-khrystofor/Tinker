@@ -26,7 +26,7 @@ export class WebSocketService {
     const token = localStorage.getItem('authToken');
     if (token){
       const user = jwt_decode(token);
-      this.socket = io.connect('localhost:3000', {
+      this.socket = io.connect('165.22.85.146:3000', {
 // @ts-ignore
         query: {'userId': user?.id as string}
       });
