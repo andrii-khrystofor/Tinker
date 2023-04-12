@@ -11,12 +11,13 @@ import jwt_decode from "jwt-decode";
 export class MessageComponent implements OnInit {
 
   @Input()
-  message!: Message;
+  message!: Message & {color: string};
   user!: User;
   constructor() { }
 
   ngOnInit(): void {
     this.user = jwt_decode(localStorage.getItem('authToken') || '');
+    console.log(this.message.color);
   }
 
 }

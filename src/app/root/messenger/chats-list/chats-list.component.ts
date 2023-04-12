@@ -19,7 +19,7 @@ export class ChatsListComponent implements OnInit, OnDestroy {
     pinnedChats: Chat[] = [];
     unpinnedChats: Chat[] = [];
 
-    unreadMessages = 50;
+    availableChats!: number;
 
     user!: User;
     chats: any;
@@ -54,6 +54,7 @@ export class ChatsListComponent implements OnInit, OnDestroy {
             console.log(data)
             this.pinnedChats = data.filter((chat: any) => chat.isPinned);
             this.unpinnedChats = data.filter((chat: any) => !chat.isPinned);
+            this.availableChats = data.length;
         })
 
 

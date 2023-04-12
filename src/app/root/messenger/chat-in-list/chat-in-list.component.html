@@ -1,5 +1,8 @@
 <div class="card" (click)='goToChat()'>
-    <div class="img"><img src="../../../../assets/images/user.svg" alt="user" /></div>
+    <div class="img">
+      <img src="../../../../assets/images/user.svg" alt="user" *ngIf="!chat.isGroupChat"/>
+      <img src="../../../../assets/images/groups.svg" alt="user" *ngIf="chat.isGroupChat"/>
+    </div>
     <div class="textBox">
         <p class="main">{{chat.name}}</p>
         <p class="third">{{chat.description}}</p>

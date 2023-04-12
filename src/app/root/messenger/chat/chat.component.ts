@@ -7,6 +7,7 @@ import { WebSocketService } from 'src/app/core/services/web-socket/web-socket.se
 import { Chat } from 'src/app/types/models/chat.model';
 import { Message, MessageDTO } from 'src/app/types/models/message.model';
 import jwt_decode from "jwt-decode";
+import {ColorsService} from "../services/color.service";
 
 @Component({
     selector: 'app-chat',
@@ -44,7 +45,7 @@ export class ChatComponent implements OnInit, OnDestroy {
 
     constructor(private router: ActivatedRoute,
         public chatService: ChatService,
-        private webSocketService: WebSocketService) { }
+        private webSocketService: WebSocketService, private colorService: ColorsService) { }
 
     ngOnInit(): void {
         this.router.params.pipe(takeUntil(this.unsubscribe$)).subscribe((data: any) => {
@@ -62,7 +63,10 @@ export class ChatComponent implements OnInit, OnDestroy {
 
             this.webSocketService.listen('getChatInfo')
                 .pipe(take(1))
-                .subscribe(data => this.chat = data)
+                .subscribe(data => {
+                  this.chat = data
+
+                })
 
             this.webSocketService.emit('getMessagesByChat', {
                 chatId: this.chatId
@@ -71,6 +75,8 @@ export class ChatComponent implements OnInit, OnDestroy {
             this.webSocketService.listen('getMessagesByChat')
                 .pipe(take(1))
                 .subscribe(data => {
+                    const users = new Set(...data.map((message: Message) => message.senderId))
+
                     console.log('messages', data);
                     this.chatService.messages$.next(data.map(
                         (el: any) => {
@@ -79,7 +85,9 @@ export class ChatComponent implements OnInit, OnDestroy {
                                 isPinned: el.isPinned,
                                 message: el.text,
                                 senderId: el.senderId,
-                                sentTime: new Date(el.sentTime)
+                                sentTime: new Date(el.sentTime),
+
+                              color: this.colorService.getGraphColor(el.senderId)
                             }
                         }));
                     this.scrollToBottom();
@@ -87,13 +95,13 @@ export class ChatComponent implements OnInit, OnDestroy {
 
             this.subscription = this.webSocketService.listen('getMessage')
                 .subscribe(data => {
-                    console.log(data);
-                    const message: Message = {
+                    const message: Message  & {color: string} = {
                         id: data._id,
                         isPinned: data.isPinned,
                         message: data.text,
                         senderId: data.senderId,
-                        sentTime: new Date(data.sentTime)
+                        sentTime: new Date(data.sentTime),
+                      color: this.colorService.getGraphColor(data.senderId)
                     }
                     this.chatService.messages$.next([...this.chatService.messages$.value, message])
                     this.scrollToBottom();
@@ -127,4 +135,5 @@ export class ChatComponent implements OnInit, OnDestroy {
 
         this.subscription.unsubscribe();
     }
+
 }

@@ -81,7 +81,7 @@ import { Message, MessageDTO } from 'src/app/types/models/message.model';
 //     senderId: 1,
 //     sentTime: new Date()
 //   },
-  
+
 // ]
 @Injectable({
   providedIn: 'root'
@@ -89,7 +89,7 @@ import { Message, MessageDTO } from 'src/app/types/models/message.model';
 export class ChatService {
 
   chats$: BehaviorSubject<Chat[]> = new BehaviorSubject<Chat[]>([]);
-  messages$: BehaviorSubject<Message[]> = new BehaviorSubject<Message[]>([]);
+  messages$: BehaviorSubject<(Message & {color: string})[] > = new BehaviorSubject<(Message & {color: string})[]>([]);
   constructor() { }
 
   // updateChatsList(): void{
@@ -102,7 +102,7 @@ export class ChatService {
   // }
 
   // getMessagesForChat(chatId: string): Observable<Message[]> {
-    
+
   //   //todo: change logic to get data from BE
   //   this.messages$.next(messagesMock);
   //   return this.messages$;

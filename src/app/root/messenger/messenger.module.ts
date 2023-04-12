@@ -19,6 +19,7 @@ import { ContactsComponent } from './contacts/contacts.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { ChatCreationComponent } from './chat-creation/chat-creation.component';
+import {ColorsService} from "./services/color.service";
 
 
 
@@ -48,6 +49,9 @@ import { ChatCreationComponent } from './chat-creation/chat-creation.component';
     FormsModule,
     MatProgressSpinnerModule,
     SharedModule,
+  ],
+  providers: [
+    {provide: ColorsService}
   ]
 })
 export class MessengerModule { }

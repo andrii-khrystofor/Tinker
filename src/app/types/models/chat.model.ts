@@ -3,4 +3,5 @@ export interface Chat{
     description: string;
     id: number | string;
     isPinned: boolean;
+    isGroupChat: boolean;
 }

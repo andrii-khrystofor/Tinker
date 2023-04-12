@@ -1,7 +1,10 @@
 <div class="chat__container">
     <div class="chat__info">
         <div class="info">
-            <div class="img"><img src="../../../../assets/images/user.svg" alt="user" /></div>
+            <div class="img">
+              <img src="../../../../assets/images/user.svg" alt="user" *ngIf="!chat?.isGroupChat"/>
+              <img src="../../../../assets/images/groups.svg" alt="user" *ngIf="chat?.isGroupChat"/>
+            </div>
             <h2 class="h2">{{chat?.name}}</h2>
         </div>
         <div class="actions">

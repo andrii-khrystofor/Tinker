@@ -1,7 +1,7 @@
-<div class="message__row" [ngClass]="{'recieved': message.senderId !== user.id, 'sent': message.senderId === user.id}">
-    <div class="message__container">
+<div class="message__row"  [ngClass]="{'recieved': message.senderId !== user.id, 'sent': message.senderId === user.id}">
+    <div class="message__container" [ngStyle]="{'background-color': message.color}">
 
-    
+
         <div class="message__textBox">
             <p class="main">
                 {{message.message}}
