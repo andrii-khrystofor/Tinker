@@ -1,0 +1,35 @@
+.left-panel{
+    &__container{
+        display: flex;
+        height: calc(100% - 40px);
+        width: 40px;
+        background-color: rgba(250, 250, 250, 0.7);
+        border-radius: 0px 20px 20px 0px;
+        padding: 20px;
+        flex-direction: column;
+        align-items: center;
+    }
+    &__logo {
+        cursor: pointer;
+    }
+    &__action{
+        background-color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    &__user-actions{
+        margin-top: 60px;
+        display: flex;
+        gap: 25px;
+        flex-direction: column;
+    }
+    &__app-actions{
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        gap: 25px;
+    }
+}
+

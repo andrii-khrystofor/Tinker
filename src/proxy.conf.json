@@ -1,6 +1,16 @@
 {
-    "/api": {
-      "target": "http://165.22.85.146:5000",
-      "secure": false
+  "/api": {
+    "target": "http://165.22.85.146:3000",
+    "secure": false,
+    "pathRewrite": {
+      "^/api": ""
     }
+  },
+  "/sock": {
+    "target": "ws://165.22.85.146:3000",
+    "ws": true,
+    "secure": false,
+    "logLevel": "debug",
+    "changeOrigin": true
   }
+}

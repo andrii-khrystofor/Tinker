@@ -1,3 +1,68 @@
 {
-    "example": "приклад"
+    "title": "Tinker Web",
+    "signin": {
+        "title": "Вітаємо вас у десктопній версії месенджеру Tinker. Дякуємо, що обрали наш сервіс.",
+        "login": "Увійти",
+        "signup": "Зареєструватись",
+        "switchLanguage": "Змінити мову на англійську"
+    },
+    "login": {
+        "title": "Вхід",
+        "email": "Email",
+        "enterEmail": "Введіть свій email",
+        "password": "Пароль",
+        "enterPassword": "Введіть свій пароль"
+    },
+    "signup": {
+        "title": "Реєестрація",
+        "email": "Email",
+        "enterEmail": "Введіть свій email",
+        "name": "Ім'я",
+        "enterName": "Введіть своє ім'я",
+        "username": "Ім'я користувача",
+        "enterUsername": "Введіть ім'я користувача, починаючи з @",
+        "password": "Пароль",
+        "enterPassword": "Введіть свій пароль",
+        "repeatPassword": "Повторіть пароль",
+        "enterRepeatPassword": "Повторіть свій пароль"
+    },
+    "messenger": {
+        "chats": {
+            "messages": "Повідомлення",
+            "pinned": "Закріплені",
+            "allMessages": "Усі повідомлення"
+        },
+        "search": "пошук",
+        "placeholder": "Оберіть чат",
+        "writeMwssage": "напишіть повідомлення",
+        "settings": {
+            "title": "Налаштування",
+            "profile": {
+                "title": "Профіль",
+                "changeName": "Змінити ім'я",
+                "changeUsername": "Змінити ім'я користувача",
+                "changeEmail": "Змінити email"
+            },
+            "language": {
+                "title": "Мова",
+                "chooseLanguage": "Обрати мову"
+            },
+            "colorTheme": {
+                "title": "Обрати тему",
+                "theme1": "Тема 1",
+                "theme2": "Тема 2",
+                "theme3": "Тема 3",
+                "theme4": "Тема 4"
+            }
+        },
+        "contacts": {
+            "title": "Контакти",
+            "searchPlaceholder": "введіть ім'я користувача",
+            "addContact": "Додати контакт"
+        },"createChat": {
+        "title": "Створити чат",
+        "addChat": "Додати чат",
+        "chatNamePlaceholder": "Введіть ім'я чату"
+      }
+    }
 }

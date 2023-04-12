@@ -1,71 +1,109 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Subject, takeUntil } from 'rxjs';
+import { catchError, of, Subject, takeUntil } from 'rxjs';
 import { InputTypes } from 'src/app/types/enums/input-types.enum';
 import { hashPassword } from '../passwordHash';
 import { samePasswords } from '../passwords.validator';
+import {WebSocketService} from "../../../core/services/web-socket/web-socket.service";
 
 @Component({
-    selector: 'app-sign-up',
-    templateUrl: './sign-up.component.html',
-    styleUrls: ['./sign-up.component.scss']
+	selector: 'app-sign-up',
+	templateUrl: './sign-up.component.html',
+	styleUrls: ['./sign-up.component.scss']
 })
 export class SignUpComponent implements OnInit, OnDestroy {
-  
-    private unsubscribe$ = new Subject();
 
-    signUpForm: FormGroup = new FormGroup({
-        email: new FormControl('', [Validators.required, Validators.email]),
-        name: new FormControl('', Validators.required) ,
-        username: new FormControl('', Validators.required),
-        password: new FormControl('', Validators.required),
-        repeatPassword: new FormControl('', Validators.required)
-    });
-
-    passwordInput = InputTypes.Password;
-
-    constructor( private router: Router) { 
-    }
-
-    ngOnInit(): void {
-        this.signUpForm.get('repeatPassword')?.addValidators(samePasswords(this.signUpForm));
-        this.signUpForm.get('password')?.valueChanges.pipe(takeUntil(this.unsubscribe$)).subscribe(() => {
-            this.signUpForm.get('repeatPassword')?.updateValueAndValidity();
-        })
-    }
-
-
-    submitData() {
-        this.signUpForm.markAllAsTouched();
-
-        if(this.signUpForm.valid){
-            const valueToSend = JSON.parse(JSON.stringify(this.signUpForm.value));
-            delete valueToSend['repeatPassword'];
-            valueToSend.password = hashPassword(valueToSend.password);
-            console.log(valueToSend);
+	@HostListener('document:keydown', ['$event'])
+    listenToEscPress(event: KeyboardEvent): void {
+        switch (event.key) {
+            case 'Enter':
+                this.submitData();
+                break;
+            case 'Escape':
+                this.backToSignIn();
+                break;
         }
-  }
+    }
 
-  backToSignIn() {
-    this.router.navigate([
-      '/root',
-      {
-        outlets: {
-          modalOutlet: [
-            'modal',
-            'auth',
-            'sign-in',
-          ],
-          dialogOutlet: null,
-        },
-      },
-    ]);
-  }
+	private unsubscribe$ = new Subject();
 
-  ngOnDestroy(): void {
-      this.unsubscribe$.next(0);
-      this.unsubscribe$.complete();
-  }
+
+  isLoading = false;
+  signUpError = '';
+
+
+	signUpForm: FormGroup = new FormGroup({
+		email: new FormControl('', [Validators.required, Validators.email]),
+		name: new FormControl('', Validators.required),
+		username: new FormControl('', Validators.required),
+		password: new FormControl('', Validators.required),
+		repeatPassword: new FormControl('', Validators.required)
+	});
+
+	passwordInput = InputTypes.Password;
+
+	constructor(private router: Router, private http: HttpClient, private wsService: WebSocketService) {
+	}
+
+	ngOnInit(): void {
+		this.signUpForm.get('repeatPassword')?.addValidators(samePasswords(this.signUpForm));
+		this.signUpForm.get('password')?.valueChanges.pipe(takeUntil(this.unsubscribe$)).subscribe(() => {
+			this.signUpForm.get('repeatPassword')?.updateValueAndValidity();
+		})
+	}
+
+
+	submitData() {
+		this.signUpForm.markAllAsTouched();
+
+		if (this.signUpForm.valid) {
+			const valueToSend = JSON.parse(JSON.stringify(this.signUpForm.value));
+			delete valueToSend['repeatPassword'];
+			valueToSend.password = hashPassword(valueToSend.password);
+      this.isLoading = true;
+			console.log(valueToSend);
+
+			this.http.post('api/register', {
+				...valueToSend
+			})
+				.pipe(catchError(error => of(error)))
+				.subscribe((response: any) => {
+					if (response.error) {
+            console.log(response.error);
+            this.isLoading = false;
+            this.signUpError = (typeof response.error.message === "string") ? 'email is already in use' :  response.error.message.details[0].message.includes('/^.+@knu.ua$/') ? 'Email domain should be knu.ua' :
+              'username should start with @'
+						return;
+					}
+					localStorage.setItem('authToken', response?.accessToken);
+          this.wsService.startConnectionForCurrentUser();
+          this.isLoading = false;
+					this.router.navigateByUrl('/root/main/messenger');
+				});
+		}
+	}
+
+	backToSignIn() {
+		this.router.navigate([
+			'/root',
+			{
+				outlets: {
+					modalOutlet: [
+						'modal',
+						'auth',
+						'sign-in',
+					],
+					dialogOutlet: null,
+				},
+			},
+		]);
+	}
+
+	ngOnDestroy(): void {
+		this.unsubscribe$.next(0);
+		this.unsubscribe$.complete();
+	}
 
 }

@@ -1,0 +1,35 @@
+<div class="chats-list__container">
+    <div class="chats-list__search">
+        <div class="list-label">
+            <h2>{{'messenger.chats.messages' | translate}}</h2>
+            <label class="chip">{{availableChats}}</label>
+        </div>
+        <div class="list-actions">
+            <input placeholder="{{'messenger.search' | translate}}"/>
+            <img src="../../../../assets/images/search.svg" alt="search" class="search"/>
+
+            <button mat-icon-button class="chats-list__action" (click)="createNewGroupChat()">
+                <img src="../../../../assets/images/plus-circle.svg" alt="New chat"/>
+            </button>
+        </div>
+    </div>
+    <div class="chats-list__chats__container" *ngIf="!isChatListLoading">
+        <div class="chats-list__chats" *ngIf="pinnedChats.length > 0">
+            <div class="chat-list__chats label">
+                <label>{{'messenger.chats.pinned' | translate}}</label>
+                <img src="../../../../assets/images/Pinned.svg" alt="Pinned"/>
+            </div>
+            <app-chat-in-list *ngFor="let chat of pinnedChats" [chat]="chat"></app-chat-in-list>
+        </div>
+        <div class="chats-list__chats">
+            <div class="chat-list__chats label">
+                <label>{{'messenger.chats.allMessages' | translate}}</label>
+                <img src="../../../../assets/images/Unpinned.svg" alt="All"/>
+            </div>
+            <app-chat-in-list *ngFor="let chat of unpinnedChats" [chat]="chat"></app-chat-in-list>
+        </div>
+    </div>
+    <div class="chats-list__preloader" *ngIf="isChatListLoading">
+        <mat-spinner></mat-spinner>
+    </div>
+</div>

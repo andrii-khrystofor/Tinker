@@ -3,8 +3,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { MainLayoutComponent } from '../layouts/main-layout/main-layout.component';
 import { ModalLayoutComponent } from '../layouts/modal-layout/modal-layout.component';
 import { RootRoutes } from '../types/enums/root-routes.enum';
-import { FeatureExampleComponent } from './feature-example/feature-example.component';
-import { ModalFeatureExampleComponent } from './modal-feature-example/modal-feature-example.component';
 import { RootComponent } from './root.component';
 import { AuthGuardService as AuthGuard } from '../core/guards/auth-guard.service';
 
@@ -20,9 +18,10 @@ const routes: Routes = [
         canActivate: [AuthGuard],
         children: [
           {
-            path: RootRoutes.DELETE_THIS_EXAMPLE,
-            component: FeatureExampleComponent,
-          },
+            path: RootRoutes.MESSENGER,
+            loadChildren: () =>
+              import('./messenger/messenger.module').then((m) => m.MessengerModule),
+          }
         ],
       },
       {
@@ -30,10 +29,6 @@ const routes: Routes = [
         component: ModalLayoutComponent,
         outlet: RootRoutes.MODAL_OUTLET_NAME,
         children: [
-          {
-            path: RootRoutes.DELETE_THIS_MODAL_EXAMPLE,
-            component: ModalFeatureExampleComponent,
-          },
           {
             path: RootRoutes.AUTH,
             loadChildren: () =>

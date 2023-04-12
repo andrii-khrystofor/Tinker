@@ -1,0 +1,75 @@
+<div class="settings__container">
+    <div class="settings__close-container">
+        <button mat-icon-button color="primary" (click)="closeSettings()">
+            <mat-icon>close</mat-icon>
+        </button>
+    </div>
+
+    <h2 class="settings__title">{{'messenger.settings.title' | translate}}</h2>
+
+    <div class="settings__content">
+        <form [formGroup]="settingsForm">
+            <section class="settings__header header">
+                <div class="header__photo"></div>
+                <div class="header__info">
+                    <h2 class="header__name">{{user.name}}</h2>
+                    <div class="header__username">{{user.username}}</div>
+                </div>
+            </section>
+
+            <section class="settings__profile profile">
+                <h2 class="profile__title">{{'messenger.settings.profile.title' | translate}}</h2>
+                <div class="profile__user-data user-data">
+                    <div class="user-data__item">
+                        <div class="user-data__label">{{'messenger.settings.profile.changeName' | translate}}</div>
+                        <!-- <div class="user-data__input" contenteditable="true" formControlName="name"></div> -->
+                        <input class="user-data__input" formControlName="name" (blur)="updateUser()">
+                    </div>
+                    <div class="user-data__item">
+                        <div class="user-data__label">{{'messenger.settings.profile.changeUsername' | translate}}</div>
+                        <input class="user-data__input" formControlName="username" (blur)="updateUser()">
+                    </div>
+                    <div class="user-data__item">
+                        <div class="user-data__label">{{'messenger.settings.profile.changeEmail' | translate}}</div>
+                        <input class="user-data__input" formControlName="email" (blur)="updateUser()">
+                    </div>
+                </div>
+            </section>
+
+            <section class="settings__language language">
+                <h2 class="language__title">{{'messenger.settings.language.title' | translate}}</h2>
+                <div class="language__select-language">
+                    <div class="language__choose">{{'messenger.settings.language.chooseLanguage' | translate}}</div>
+                    <div class="language__select">
+                        <mat-select formControlName="language" (selectionChange)="changeLanguage($event)">
+                            <mat-option value="en">English</mat-option>
+                            <mat-option value="ua">Українська</mat-option>
+                        </mat-select>
+                    </div>
+                </div>
+            </section>
+
+            <section class="settings__color-theme color-theme">
+                <h2 class="color-theme__title">{{'messenger.settings.colorTheme.title' | translate}}</h2>
+                <div class="color-theme__select">
+                    <div class="color-theme__item" (click)="changeTheme(1)">
+                        <img src="../../../../assets/images/theme1.svg">
+                        {{'messenger.settings.colorTheme.theme1' | translate}}
+                    </div>
+                    <div class="color-theme__item" (click)="changeTheme(2)">
+                        <img src="../../../../assets/images/theme2.svg">
+                        {{'messenger.settings.colorTheme.theme2' | translate}}
+                    </div>
+                    <div class="color-theme__item" (click)="changeTheme(3)">
+                        <img src="../../../../assets/images/theme3.svg">
+                        {{'messenger.settings.colorTheme.theme3' | translate}}
+                    </div>
+                    <div class="color-theme__item" (click)="changeTheme(4)">
+                        <img src="../../../../assets/images/theme4.svg">
+                        {{'messenger.settings.colorTheme.theme4' | translate}}
+                    </div>
+                </div>
+            </section>
+        </form>
+    </div>
+</div>

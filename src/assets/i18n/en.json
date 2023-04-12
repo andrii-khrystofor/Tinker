@@ -1,3 +1,69 @@
 {
-    "example": "example"
+    "title": "Tinker Web",
+    "signin": {
+        "title": "We are pleased to welcome you to the desktop version of the Tinker messenger and thank you for using our application for communication.",
+        "login": "Log In",
+        "signup": "Sign Up",
+        "switchLanguage": "Switch to Ukrainian"
+    },
+    "login": {
+        "title": "Log In",
+        "email": "Email",
+        "enterEmail": "Enter your email",
+        "password": "Password",
+        "enterPassword": "Enter your password"
+    },
+    "signup": {
+        "title": "Sign Up",
+        "email": "Email",
+        "enterEmail": "Enter your email",
+        "name": "Name",
+        "enterName": "Enter your name",
+        "username": "Username",
+        "enterUsername": "Enter your username starting with @",
+        "password": "Password",
+        "enterPassword": "Enter your password",
+        "repeatPassword": "Repeat password",
+        "enterRepeatPassword": "Repeat your password"
+    },
+    "messenger": {
+        "chats": {
+            "messages": "Messages",
+            "pinned": "Pinned",
+            "allMessages": "All messages"
+        },
+        "search": "search",
+        "placeholder": "Choose who you want to text",
+        "writeMwssage": "write a message",
+        "settings": {
+            "title": "Settings",
+            "profile": {
+                "title": "Profile",
+                "changeName": "Change name",
+                "changeUsername": "Change username",
+                "changeEmail": "Change email"
+            },
+            "language": {
+                "title": "Language",
+                "chooseLanguage": "Choose language"
+            },
+            "colorTheme": {
+                "title": "Choose theme",
+                "theme1": "Theme 1",
+                "theme2": "Theme 2",
+                "theme3": "Theme 3",
+                "theme4": "Theme 4"
+            }
+        },
+        "contacts": {
+            "title": "Contacts",
+            "searchPlaceholder": "enter username",
+            "addContact": "Add contact"
+        },
+      "createChat": {
+        "title": "Create chat",
+        "addChat": "Add chat",
+        "chatNamePlaceholder": "Enter chat name"
+      }
+    }
 }
