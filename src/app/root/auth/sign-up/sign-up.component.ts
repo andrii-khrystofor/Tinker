@@ -29,6 +29,11 @@ export class SignUpComponent implements OnInit, OnDestroy {
 
 	private unsubscribe$ = new Subject();
 
+
+  isLoading = false;
+  signUpError = '';
+
+
 	signUpForm: FormGroup = new FormGroup({
 		email: new FormControl('', [Validators.required, Validators.email]),
 		name: new FormControl('', Validators.required),
@@ -57,6 +62,7 @@ export class SignUpComponent implements OnInit, OnDestroy {
 			const valueToSend = JSON.parse(JSON.stringify(this.signUpForm.value));
 			delete valueToSend['repeatPassword'];
 			valueToSend.password = hashPassword(valueToSend.password);
+      this.isLoading = true;
 			console.log(valueToSend);
 
 			this.http.post('api/register', {
@@ -65,10 +71,15 @@ export class SignUpComponent implements OnInit, OnDestroy {
 				.pipe(catchError(error => of(error)))
 				.subscribe((response: any) => {
 					if (response.error) {
+            console.log(response.error);
+            this.isLoading = false;
+            this.signUpError = (typeof response.error.message === "string") ? 'email is already in use' :  response.error.message.details[0].message.includes('/^.+@knu.ua$/') ? 'Email domain should be knu.ua' :
+              'username should start with @'
 						return;
 					}
 					localStorage.setItem('authToken', response?.accessToken);
           this.wsService.startConnectionForCurrentUser();
+          this.isLoading = false;
 					this.router.navigateByUrl('/root/main/messenger');
 				});
 		}

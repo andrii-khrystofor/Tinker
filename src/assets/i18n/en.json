@@ -20,7 +20,7 @@
         "name": "Name",
         "enterName": "Enter your name",
         "username": "Username",
-        "enterUsername": "Enter your username",
+        "enterUsername": "Enter your username starting with @",
         "password": "Password",
         "enterPassword": "Enter your password",
         "repeatPassword": "Repeat password",
